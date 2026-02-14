@@ -252,17 +252,20 @@ function openQR(amount, gameName) {
     let upiID = "clutchfiles11@axl";
     let name = "ClutchFiles";
 
+    // Generate random Order ID
+    let orderID = "CF-" + Math.floor(10000 + Math.random() * 90000);
+
     let upiURL = `upi://pay?pa=${upiID}&pn=${name}&am=${amount}&cu=INR`;
 
-    // Generate QR using Google Chart API
     let qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURL)}`;
 
     document.getElementById("dynamicQR").src = qrURL;
     document.getElementById("upiLink").href = upiURL;
+
     document.getElementById("gameTitle").innerText = gameName;
     document.getElementById("priceText").innerText = "Amount: ₹" + amount;
+    document.getElementById("orderText").innerText = "Order ID: " + orderID;
 
-    document.getElementById("qrModal").style.display = "block";
     // WhatsApp auto message
     let message = `Hi, I paid ₹${amount} for ${gameName}. Order ID: ${orderID}`;
     let whatsappURL = `https://wa.me/916381567448?text=${encodeURIComponent(message)}`;
@@ -271,7 +274,6 @@ function openQR(amount, gameName) {
 
     document.getElementById("qrModal").style.display = "block";
 }
-}
 
 function closeQR() {
     document.getElementById("qrModal").style.display = "none";
@@ -279,8 +281,11 @@ function closeQR() {
 </script>
 
 
+
+
 </body>
 </html>
+
 
 
 
