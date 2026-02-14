@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop - ClutchFiles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic modal styling (you can keep your own CSS too) */
+        .upi-modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .upi-box {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        .upi-box .close {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .upi-qr {
+            width: 200px;
+            margin: 10px 0;
+        }
+        .pay-btn, .verify-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        #downloadLink a {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="logo">ClutchFiles 🕹️</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+    </nav>
+</header>
+
+<section class="store">
+    <h2>TRENDING GAMES</h2>
+
+    <div class="products-grid">
+
+        <div class="product-card">
+            <div class="badge">SALE -20%</div>
+            <img src="images/product1.jpg">
+            <h3>Spider-man Remastered + Video Tutorial</h3>
+            <div class="rating">★★★★★</div>
+            <p class="price"><span class="old">₹50</span>₹35</p>
+          <button class="buy-btn" onclick="openQR(35, 'Spider-Man Remastered')">
+  Buy Now
+</button>
+
+        </div>
+
+        <div class="product-card">
+            <div class="badge">SALE -60%</div>
+            <img src="images/product2.jpg">
+            <h3>God Of War</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹100</span>₹40</p>
+           <button class="buy-btn" onclick="openQR(40, 'God of War')">
+  Buy Now
+</button>
+
+        </div>
+
+        <div class="product-card">
+            <div class="badge">SALE -20%</div>
+            <img src="images/product3.jpg">
+            <h3>Spider-man Miles Morales</h3>
+            <div class="rating">★★★★★</div>
+            <p class="price"><span class="old">₹60</span>₹29</p>
+            <button class="buy-btn" onclick="openQR(29, 'Spider-man Miles Morales')">
+  Buy Now
+</button>
+
+        </div>
+
+        <div class="product-card">
+            <div class="badge">SALE -20%</div>
+            <img src="images/product4.jpg">
+            <h3>Assassin's Creed Mirage</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹60</span>₹29</p>
+            <button class="buy-btn" onclick="openQR(29, 'PAY USING PHONEPAY,GPAY,PAYTM')">
+  Buy Now
+</button>
+        </div>
+        <div class="product-card">
+            <div class="badge">SALE -50%</div>
+            <img src="images/product5.jpg">
+            <h3>God of War Ragnarök</h3>
+            <div class="rating">★★★★★</div>
+            <p class="price"><span class="old">₹100</span>₹50</p>
+           <button class="buy-btn" onclick="openQR(29, 'God of War Ragnarök')">
+  Buy Now
+</button>
+        </div>
+
+        <div class="product-card">
+            <div class="badge">SALE -20%</div>
+            <img src="images/product6.jpg">
+            <h3>UNCHARTED™: Legacy of Thieves Collection</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹60</span>₹29</p>
+            <button class="buy-btn" onclick="openQR(29, 'UNCHARTED™: Legacy of Thieves Collection')">
+  Buy Now
+</button>
+        </div>
+       <div class="product-card">
+            <div class="badge">SALE -20%</div>
+            <img src="images/product7.jpg">
+            <h3>Ghost of Tsushima</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹60</span>₹29</p>
+            <button class="buy-btn" onclick="openQR(29, 'Ghost of Tsushima')">
+  Buy Now
+</button>
+        </div>
+        <div class="product-card">
+            <div class="badge">SALE -20%</div>
+            <img src="images/product8.jpg">
+            <h3>Ghost of Yōtei</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹60</span>₹29</p>
+            <button class="buy-btn" onclick="openQR(29, 'Ghost of Yōtei')">
+  Buy Now
+</button>
+        </div>
+         <div class="product-card">
+            <div class="badge">SALE -20%</div>
+            <img src="images/product9.jpg">
+            <h3>Far Cry 5</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹60</span>₹29</p>
+            <button class="buy-btn" onclick="openQR(29, 'Far Cry 5')">
+  Buy Now
+</button>
+        </div>
+         <div class="product-card">
+            <div class="badge">SALE -50%</div>
+            <img src="images/product10.jpg">
+            <h3>Red Dead Redemption 2</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹100</span>₹50</p>
+            <button class="buy-btn" onclick="openQR(50, 'Red Dead Redemption 2')">
+  Buy Now
+</button>
+        </div>
+         <div class="product-card">
+            <div class="badge">SALE -50%</div>
+            <img src="images/product11.jpg">
+            <h3>TThe Last of Us™ Part I</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹100</span>₹50</p>
+             <button class="buy-btn" onclick="openQR(50, 'The Last of Us™ Part I')">
+  Buy Now
+</button>
+        </div>
+         <div class="product-card">
+            <div class="badge">SALE -50%</div>
+            <img src="images/product12.jpg">
+            <h3>The Last of Us™ Part II Remastered</h3>
+            <div class="rating">★★★★☆</div>
+            <p class="price"><span class="old">₹100</span>₹50</p>
+            <button class="buy-btn" onclick="openQR(50, 'The Last of Us™ Part II Remastered')">
+  Buy Now
+</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 ClutchFiles.com
+</footer>
+<div id="qrModal" class="qr-modal">
+  <div class="qr-box">
+    <span class="close" onclick="closeQR()">&times;</span>
+
+    <h2 id="gameTitle">Game Name</h2>
+
+    <img id="dynamicQR" class="qr-img">
+
+    <p id="priceText"></p>
+
+    <a id="upiLink" target="_blank" class="whatsapp-btn">
+      Pay via UPI App
+    </a>
+  </div>
+</div>
+
+
+<script>
+function openQR() {
+    document.getElementById("qrModal").style.display = "block";
+}
+
+function closeQR() {
+    document.getElementById("qrModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    let modal = document.getElementById("qrModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<script>
+function openQR(amount, gameName) {
+
+    let upiID = "6381567448@ybl";
+    let name = "ClutchFiles";
+
+    let upiURL = `upi://pay?pa=${upiID}&pn=${name}&am=${amount}&cu=INR`;
+
+    // Generate QR using Google Chart API
+    let qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiURL)}`;
+
+    document.getElementById("dynamicQR").src = qrURL;
+    document.getElementById("upiLink").href = upiURL;
+    document.getElementById("gameTitle").innerText = gameName;
+    document.getElementById("priceText").innerText = "Amount: ₹" + amount;
+
+    document.getElementById("qrModal").style.display = "block";
+}
+
+function closeQR() {
+    document.getElementById("qrModal").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
