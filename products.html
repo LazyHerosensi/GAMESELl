@@ -215,6 +215,16 @@
 
     <a id="upiLink" target="_blank" class="whatsapp-btn">
       Pay via UPI App
+<h2 id="gameTitle"></h2>
+<p id="priceText"></p>
+<p id="orderText"></p>
+
+<img id="dynamicQR" class="qr-img">
+
+<a id="whatsappBtn" target="_blank" class="whatsapp-btn">
+  Send Screenshot on WhatsApp
+</a>
+
     </a>
   </div>
 </div>
@@ -253,6 +263,14 @@ function openQR(amount, gameName) {
     document.getElementById("priceText").innerText = "Amount: ₹" + amount;
 
     document.getElementById("qrModal").style.display = "block";
+    // WhatsApp auto message
+    let message = `Hi, I paid ₹${amount} for ${gameName}. Order ID: ${orderID}`;
+    let whatsappURL = `https://wa.me/916381567448?text=${encodeURIComponent(message)}`;
+
+    document.getElementById("whatsappBtn").href = whatsappURL;
+
+    document.getElementById("qrModal").style.display = "block";
+}
 }
 
 function closeQR() {
@@ -263,5 +281,6 @@ function closeQR() {
 
 </body>
 </html>
+
 
 
